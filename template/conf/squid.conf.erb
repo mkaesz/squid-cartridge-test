@@ -95,7 +95,7 @@ cache_store_log <%= ENV['OPENSHIFT_SQUID_DIR'] %>var/logs/store.log
 
 pid_filename <%= ENV['OPENSHIFT_SQUID_DIR'] %>run/squid.pid
 
-error_directory <%= ENV['OPENSHIFT_SQUID_DIR'] %>/errors
+error_directory <%= ENV['OPENSHIFT_SQUID_DIR'] %>errors/templates
 
 # Add any of your own refresh_pattern entries above these.
 refresh_pattern ^ftp:		1440	20%	10080
