@@ -1,12 +1,13 @@
 #!/bin/bash
 set -x
-set -d
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 echo "$version" > ${OPENSHIFT_SQUID_DIR}env/OPENSHIFT_SQUID_VERSION
 
-mkdir -p ${OPENSHIFT_SQUID_DIR}{var/logs,cache,run,configuration}
+mkdir -p ${OPENSHIFT_SQUID_DIR}{var/logs,cache,run}
+mkdir -p ${HOME}/configuration
 
 
 ln -s ${OPENSHIFT_SQUID_DIR}template/conf/squid.conf ${HOME}/configuration/squid.conf
+ln -s ${OPENSHIFT_SQUID_DIR}template/conf/mime.conf ${HOME}/configuration/mime.conf
