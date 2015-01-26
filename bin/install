@@ -11,4 +11,4 @@ mkdir -p ${OPENSHIFT_SQUID_DIR}{var/logs,cache,run,configuration,icons}
 
 cp ${OPENSHIFT_SQUID_DIR}template/conf/squid.conf ${OPENSHIFT_SQUID_DIR}configuration/squid.conf
 cp ${OPENSHIFT_SQUID_DIR}template/conf/mime.conf ${OPENSHIFT_SQUID_DIR}configuration/mime.conf
-cp ${OPENSHIFT_SQUID_DIR}template/icons ${OPENSHIFT_SQUID_DIR}icons
+#cp ${OPENSHIFT_SQUID_DIR}template/icons ${OPENSHIFT_SQUID_DIR}icons
