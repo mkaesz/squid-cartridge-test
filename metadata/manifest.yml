@@ -31,18 +31,10 @@ Scaling:
         Min: 1
         Max: 1
 Endpoints:
-        Private-IP-Name: IP
-        Private-Port-Name: DEFAULT_HTTP_PORT
+      - Private-IP-Name: IP
+        Private-Port-Name: HTTP_PORT
         Private-Port: 3128
-        Public-Port: HTTP_PORT
-        Protocols:
-                - http
-        Options:
-                primary: true
+        Public-Port: HTTP_PROXY_PORT
         Mappings:
                 - Frontend: ''
                   Backend: ''
-                - Frontend: /health
-                  Backend: ''
-                  Options:
-                        health: true
