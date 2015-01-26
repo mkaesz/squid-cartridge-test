@@ -19,7 +19,7 @@ fi
 SQUID_OPTS=${SQUID_OPTS:-""}
 SQUID_PIDFILE_TIMEOUT=${SQUID_PIDFILE_TIMEOUT:-20}
 SQUID_SHUTDOWN_TIMEOUT=${SQUID_SHUTDOWN_TIMEOUT:-100}
-SQUID_CONF=<%= ENV['OPENSHIFT_HOMEDIR'] %>app-root/runtime/repo/squid.conf
+SQUID_CONF=<%= ENV['HOME'] %>app-root/runtime/repo/squid.conf
 
 # determine the name of the squid binary
 [ -f /usr/sbin/squid ] && SQUID=squid
