@@ -57,25 +57,24 @@ start() {
 		fi
 	done
 	echo -n $"Starting $prog: "
-#	$SQUID $SQUID_OPTS -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
-#	RETVAL=$?
-#	if [ $RETVAL -eq 0 ]; then
-#		timeout=0;
-#		while : ; do
-#			[ ! -f /${OPENSHIFT_SQUID_DIR}run/squid.pid ] || break
-#			if [ $timeout -ge $SQUID_PIDFILE_TIMEOUT ]; then
-#				RETVAL=1
-#				break
-#			fi
-#			sleep 1 && echo -n "."
-#			timeout=$((timeout+1))
-#		done
-#	fi
-##	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$SQUID
-#	[ $RETVAL -eq 0 ] && echo_success
-#	[ $RETVAL -ne 0 ] && echo_failure
+	$SQUID $SQUID_OPTS -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
+	RETVAL=$?
+	if [ $RETVAL -eq 0 ]; then
+		timeout=0;
+		while : ; do
+			[ ! -f /${OPENSHIFT_SQUID_DIR}run/squid.pid ] || break
+			if [ $timeout -ge $SQUID_PIDFILE_TIMEOUT ]; then
+				RETVAL=1
+				break
+			fi
+			sleep 1 && echo -n "."
+			timeout=$((timeout+1))
+		done
+	fi
+	[ $RETVAL -eq 0 ] && echo_success
+	[ $RETVAL -ne 0 ] && echo_failure
 	echo
-#	return $RETVAL
+	return $RETVAL
 }
 
 stop() {

@@ -59,8 +59,10 @@ http_access allow localhost
 http_access deny all
 
 # Squid normally listens to port 3128
-http_port 3128
-
+http_port <%= ENV['OPENSHIFT_SQUID_IP'] %>:3128
+itcp_outgoing_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
+snmp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
+udp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
 #snmp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
 
 #wccp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
@@ -93,7 +95,7 @@ cache_store_log <%= ENV['OPENSHIFT_SQUID_DIR'] %>var/logs/store.log
 
 pid_filename <%= ENV['OPENSHIFT_SQUID_DIR'] %>var/logs/squid.pid
 
-
+error_directory <%= ENV['OPENSHIFT_SQUID_DIR'] %>/errors
 
 # Add any of your own refresh_pattern entries above these.
 refresh_pattern ^ftp:		1440	20%	10080
