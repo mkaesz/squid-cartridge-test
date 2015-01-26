@@ -60,7 +60,7 @@ http_access deny all
 
 # Squid normally listens to port 3128
 http_port <%= ENV['OPENSHIFT_SQUID_IP'] %>:3128
-itcp_outgoing_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
+tcp_outgoing_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
 snmp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
 udp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
 #snmp_incoming_address <%= ENV['OPENSHIFT_SQUID_IP'] %>
