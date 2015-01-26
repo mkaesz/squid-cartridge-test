@@ -27,8 +27,8 @@ SQUID_CONF=${HOME}/configuration/squid.conf
 prog="$SQUID"
 
 # determine which one is the cache_swap directory
-CACHE_SWAP=`sed -e 's/#.*//g' $SQUID_CONF | \
-	grep cache_dir | awk '{ print $3 }'`
+#CACHE_SWAP=`sed -e 's/#.*//g' $SQUID_CONF | \
+#	grep cache_dir | awk '{ print $3 }'`
 
 RETVAL=0
 
@@ -39,47 +39,48 @@ probe() {
 	[ `id -u` -ne 0 ] && exit 4
 
 	# check if the squid conf file is present
-	[ -f $SQUID_CONF ] || exit 6
+#	[ -f $SQUID_CONF ] || exit 6
 }
 
 start() {
-	probe
+#	probe
 
-	parse=`$SQUID -k parse -f $SQUID_CONF 2>&1`
-	RETVAL=$?
-	if [ $RETVAL -ne 0 ]; then
-		echo -n $"Starting $prog: "
-		echo_failure
-		echo
-		echo "$parse"
-		return 1
-	fi
-	for adir in $CACHE_SWAP; do
-		if [ ! -d $adir/00 ]; then
-			echo -n "init_cache_dir $adir... "
-			$SQUID -z -F -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
-		fi
-	done
-	echo -n $"Starting $prog: "
-	$SQUID $SQUID_OPTS -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
-	RETVAL=$?
-	if [ $RETVAL -eq 0 ]; then
-		timeout=0;
-		while : ; do
-			[ ! -f /${OPENSHIFT_SQUID_DIR}run/squid.pid ] || break
-			if [ $timeout -ge $SQUID_PIDFILE_TIMEOUT ]; then
-				RETVAL=1
-				break
-			fi
-			sleep 1 && echo -n "."
-			timeout=$((timeout+1))
-		done
-	fi
-#	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$SQUID
-	[ $RETVAL -eq 0 ] && echo_success
-	[ $RETVAL -ne 0 ] && echo_failure
-	echo
-	return $RETVAL
+#	parse=`$SQUID -k parse -f $SQUID_CONF 2>&1`
+
+#	RETVAL=$?
+#	if [ $RETVAL -ne 0 ]; then
+#		echo -n $"Starting $prog: "
+#		echo_failure
+#		echo
+#		echo "$parse"
+#		return 1
+#	fi
+#	for adir in $CACHE_SWAP; do
+#		if [ ! -d $adir/00 ]; then
+#			echo -n "init_cache_dir $adir... "
+#			$SQUID -z -F -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
+#		fi
+#	done
+#	echo -n $"Starting $prog: "
+#	$SQUID $SQUID_OPTS -f $SQUID_CONF >> ${OPENSHIFT_SQUID_DIR}squid.out 2>&1
+#	RETVAL=$?
+#	if [ $RETVAL -eq 0 ]; then
+#		timeout=0;
+#		while : ; do
+#			[ ! -f /${OPENSHIFT_SQUID_DIR}run/squid.pid ] || break
+#			if [ $timeout -ge $SQUID_PIDFILE_TIMEOUT ]; then
+#				RETVAL=1
+#				break
+#			fi
+#			sleep 1 && echo -n "."
+#			timeout=$((timeout+1))
+#		done
+#	fi
+##	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$SQUID
+#	[ $RETVAL -eq 0 ] && echo_success
+#	[ $RETVAL -ne 0 ] && echo_failure
+#	echo
+#	return $RETVAL
 }
 
 stop() {
