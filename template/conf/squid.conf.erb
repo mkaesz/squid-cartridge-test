@@ -68,7 +68,7 @@ http_port 3128
 cache_mem 8 MB
 
 
-mime_table <%= ENV['HOME'] %>/configuration/mime.conf
+mime_table <%= ENV['OPENSHIFT_SQUID_DIR'] %>/configuration/mime.conf
 
 cache_effective_user <%= ENV['OPENSHIFT_GEAR_UUID'] %>
 
