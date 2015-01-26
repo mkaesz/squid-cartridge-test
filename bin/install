@@ -14,4 +14,4 @@ cp ${OPENSHIFT_SQUID_DIR}template/conf/mime.conf ${OPENSHIFT_SQUID_DIR}configura
 #cp ${OPENSHIFT_SQUID_DIR}template/icons ${OPENSHIFT_SQUID_DIR}icons
 
 
-#toutch ${OPENSHIFT_SQUID_DIR}run/squid.pid
+touch ${OPENSHIFT_SQUID_DIR}run/squid.pid
