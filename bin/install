@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+set -d
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
