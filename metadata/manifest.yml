@@ -1,0 +1,48 @@
+Name: squid
+
+Cartridge-Short-Name: SQUID
+Cartridge-Version: 1.0.0
+Cartridge-Vendor: kde
+
+Display-Name: Squid
+Description: "Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more."
+Version: 3.1.10
+
+Licence: GPLv2
+
+Categories:
+        - web_framework
+        - service
+        
+Website: http://squid-cache.org
+Provides:
+        - squid
+
+Publishes:
+
+Subscribes:
+        set-env:
+                Type: ENV.*
+                Required: false
+        set-doc-url:
+                Type: String:urlpath
+                Required: false
+Scaling:
+        Min: 1
+        Max: 1
+Endpoints:
+        Private-IP-Name: IP
+        Private-Port-Name: DEFAULT_HTTP_PORT
+        Private-Port: 3128
+        Public-Port: HTTP_PORT
+        Protocols:
+                - http
+        Options:
+                primary: true
+        Mappings:
+                - Frontend: ''
+                  Backend: ''
+                - Frontend: /health
+                  Backend: ''
+                  Options:
+                        health: true

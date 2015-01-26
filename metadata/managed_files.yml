@@ -1,0 +1,4 @@
+processed_templates:
+- 'env/*.erb'
+- 'template/conf/**/*.erb'
+
