@@ -79,7 +79,7 @@ start() {
 ##	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/$SQUID
 #	[ $RETVAL -eq 0 ] && echo_success
 #	[ $RETVAL -ne 0 ] && echo_failure
-#	echo
+	echo
 #	return $RETVAL
 }
 
