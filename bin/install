@@ -7,4 +7,4 @@ echo "$version" > ${OPENSHIFT_SQUID_DIR}env/OPENSHIFT_SQUID_VERSION
 mkdir -p ${OPENSHIFT_SQUID_DIR}{var/logs,cache,run,configuration}
 
 
-cp ${OPENSHIFT_SQUID_DIR}template/conf/squid.conf ${HOME}configuration/
+cp ${OPENSHIFT_SQUID_DIR}template/conf/squid.conf ${HOME}/configuration/
