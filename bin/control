@@ -124,9 +124,24 @@ rhstatus() {
 }
 
 deploy() {
-	echo "Deploying..."
+        echo "Deploying..."
 }
 
+pre-repo-archive() {
+        echo
+}
+
+update-configuration() {
+ #       cp ${OPENSHIFT_REPO_DIR}conf/* ${OPENSHIFT_SQUID_DIR}configuration/
+}
+
+pre-build() {
+        echo
+}
+
+build() {
+        echo
+}
 
 case "$1" in
 start)
@@ -154,8 +169,22 @@ status)
 	;;
 
 deploy)
-	deploy
-	;;
+        deploy
+        ;;
+
+pre-repo-archive)
+        pre-repo-archive
+        ;;
+update-configuration)
+        update-configuration
+        ;;
+pre-build)
+        pre-build
+        ;;
+build)
+        build
+        ;;
+
 probe)
 	probe
 	;;
