@@ -123,6 +123,10 @@ rhstatus() {
 	status $SQUID && $SQUID -k check -f $SQUID_CONF
 }
 
+deploy() {
+	echo "Deploying..."
+}
+
 
 case "$1" in
 start)
@@ -149,6 +153,9 @@ status)
 	rhstatus
 	;;
 
+deploy)
+	deploy
+	;;
 probe)
 	probe
 	;;
