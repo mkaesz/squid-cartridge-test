@@ -40,3 +40,5 @@ Endpoints:
         Private-Port-Name: HTTP_PORT
         Private-Port: 3128
         Public-Port: HTTP_PROXY_PORT
+        Protocols:
+                http
