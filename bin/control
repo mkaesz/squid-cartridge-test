@@ -133,6 +133,7 @@ pre-repo-archive() {
 
 update-configuration() {
  #       cp ${OPENSHIFT_REPO_DIR}conf/* ${OPENSHIFT_SQUID_DIR}configuration/
+	echo
 }
 
 pre-build() {
