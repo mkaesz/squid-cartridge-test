@@ -2,7 +2,7 @@ Name: squid
 
 Cartridge-Short-Name: SQUID
 Cartridge-Version: 1.0.0
-Cartridge-Vendor: kde
+Cartridge-Vendor: msk
 
 Display-Name: Squid
 Description: "Squid is a caching proxy for the Web supporting HTTP, HTTPS, FTP, and more."
