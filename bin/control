@@ -144,6 +144,10 @@ build() {
         echo
 }
 
+post-deploy(){
+	echo
+}
+
 case "$1" in
 start)
 	start
@@ -185,7 +189,9 @@ pre-build)
 build)
         build
         ;;
-
+post-deploy)
+	post-deploy
+	;;
 probe)
 	probe
 	;;
