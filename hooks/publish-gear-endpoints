@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Publishes the endpoint for this gear. Output format = $uuid@$dns:$appname
+
 # Exit on any errors
 set -e
 
@@ -9,6 +11,6 @@ if ! gip=$(facter ipaddress); then
 fi
 
 #
-# Publish this gear's HTTP URL/endpoint.
-#
-echo "${OPENSHIFT_GEAR_DNS}|${gip}:${OPENSHIFT_SQUID_HTTP_PROXY_PORT}"
+# Publish this gear's endpoint.
+# 
+echo "${OPENSHIFT_GEAR_UUID}@${gip}:squid;$OPENSHIFT_GEAR_DNS"
