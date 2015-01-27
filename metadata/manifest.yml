@@ -35,10 +35,14 @@ Subscribes:
 Scaling:
         Min: 1
         Max: 1
+Group-Overrides:
+- components:
+  - web-proxy
 Endpoints:
-      - Private-IP-Name: IP
-        Private-Port-Name: HTTP_PORT
-        Private-Port: 3128
-        Public-Port: HTTP_PROXY_PORT
-        Protocols:
-                http
+- Private-IP-Name: IP
+  Private-Port-Name: HTTP_PORT
+  Private-Port: 3128
+  Public-Port-Name: PROXY_PORT
+  Mappings:
+  - Frontend: ''
+    Backend: ''
